@@ -1,0 +1,44 @@
+sort1 uses: selection sort
+
+sort2 uses: merge sort
+
+sort3 uses: bubble sort
+
+How do you know?:
+
+Because while exploring these results :
+REVERSSED=================
+5000 ==>
+	sort1 : 0m0,130s
+	sort2 : 0m0,045s
+	sort3 : 0m0,097s
+
+10000 ==>
+	sort1 : 0m0,249s
+	sort2 : 0m0,077s
+	sort3 : 0m0,150s
+
+50000 ==>
+	sort1 : 0m4,874s
+	sort2 : 0m0,503s
+	sort3 : 0m2,833s
+
+RANDOM===================
+5000 ==>
+	sort1 : 0m0,067s
+	sort2 : 0m0,036s
+	sort3 : 0m0,058s
+
+10000 ==>
+	sort1 : 0m0,199s
+	sort2 : 0m0,077s
+	sort3 : 0m0,156s
+
+50000 ==>
+	sort1 : 0m6,068s
+	sort2 : 0m0,557s
+	sort3 : 0m2,247s
+    
+I can see that sort2 take less time than others so assume that sort2 is about merge sort,
+and comparing the two other sort i can say that sort1 (which take more time execution than sort3) is selection sort,
+thus finally sort3 is bubble sort
