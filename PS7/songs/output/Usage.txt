@@ -1,1 +1,0 @@
-cat filename.sql | sqlite3 songs.db > output/filename.txt
