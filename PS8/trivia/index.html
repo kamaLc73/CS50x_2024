@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function checkMultipleResponse() {
+                const responseArea = document.getElementById('mc-response')
+                const incorrect = document.querySelectorAll('.incorrect')
+                const correct = document.getElementById('correct')
+
+                incorrect.forEach(button => {
+                        button.addEventListener('click', function() {
+                        incorrect.forEach(b => {
+                            b.style.backgroundColor = '#d9edff'
+                        })
+                        correct.style.backgroundColor = '#d9edff'
+                        this.style.backgroundColor = 'red'
+                        responseArea.textContent = 'Incorrect'
+                    })
+                })
+
+                correct.addEventListener('click', function() {
+                    incorrect.forEach(b => {
+                        b.style.backgroundColor = '#d9edff'
+                    })
+                    this.style.backgroundColor = 'green'
+                    responseArea.textContent = 'Correct!'
+                });
+            }
+
+            function checkFreeResponse() {
+                const userField = document.getElementById('response')
+                const responseArea = document.getElementById('result')
+
+                if (userField.value.toLowerCase() == 'paris') {
+                    userField.style.backgroundColor = 'green'
+                    responseArea.textContent = 'Correct!'
+                } else {
+                    userField.style.backgroundColor = 'red'
+                    responseArea.textContent = 'Incorrect!'
+                }
+                userField.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'white'
+                    userField.value = ''
+                    responseArea.textContent = ''
+                })
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which planet is known as the "Red Planet"?</h3>
+                <button class="incorrect" onclick="checkMultipleResponse()">A- Venus</button>
+                <button id="correct" onclick="checkMultipleResponse()">B- Mars</button>
+                <button class="incorrect" onclick="checkMultipleResponse()">C- Jupiter</button>
+                <button class="incorrect" onclick="checkMultipleResponse()">D- Saturn</button>
+                <p id="mc-response"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is the capital of France?</h3>
+                <input type="text" id="response">
+                <p id="result"></p>
+                <button onclick="checkFreeResponse()">Submit</button>
+            </div>
+        </div>
+    </body>
+
+</html>
