@@ -1,0 +1,68 @@
+#header {
+    background-color: #333;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
+
+#main {
+    padding: 20px;
+    text-align: left;
+    max-width: 800px;
+    /* Set maximum width */
+    margin: 0 auto;
+    /* Center the element horizontally */
+}
+
+#main h2 {
+    margin-bottom: 20px;
+}
+
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.projects-table th,
+.projects-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.projects-table th {
+    background-color: #212529;
+    color: #fff;
+}
+
+.projects-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.projects-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.projects-table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.projects-table a:hover {
+    text-decoration: underline;
+}
+
+#footer {
+    text-align: center;
+}
+
+.return {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return a {
+    background-color: #007bff;
+    text-decoration: none;*
+    color: white;
+}

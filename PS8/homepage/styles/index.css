@@ -1,0 +1,31 @@
+#header {
+    text-align: center;
+}
+
+#header h1 {
+    margin-bottom: 10px;
+}
+
+#main {
+    text-align: left;
+}
+
+#main h2 {
+    margin-bottom: 20px;
+}
+
+#main p {
+    margin-bottom: 15px;
+}
+
+#footer {
+    text-align: center;
+    color: white;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}

@@ -1,0 +1,62 @@
+/* Header */
+#header {
+    text-align: center;
+}
+
+/* Main Content */
+#main {
+    padding: 20px;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#main p {
+    margin-bottom: 15px;
+}
+.contact-info,
+.social-media {
+    margin-bottom: 20px;
+}
+
+.contact-info h2,
+.social-media h2 {
+    color: #333;
+}
+
+#footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-media{
+    text-align: center;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    text-decoration: solid;
+}
+
+.return {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return a {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+}
