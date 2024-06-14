@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <style>
+        .centered-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Sell Shares</h1>
+        <div class="centered-form">
+            <form action="{{ url_for('sell') }}" method="post">
+                <div class="mb-3 row">
+                    <label for="symbol" class="col-sm-2 col-form-label">Symbol:</label>
+                    <div class="col-sm-10">
+                        <select name="symbol" id="symbol" class="form-select" onchange="updateMaxShares()">
+                            <option disabled selected>Symbol</option>
+                            {% for stock in stocks %}
+                                <option value="{{ stock['symbol'] }}" data-max-shares="{{ stock['total_shares'] }}">{{ stock["symbol"] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="shares" class="col-sm-2 col-form-label">Shares:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="shares" name="shares" placeholder="Shares" type="number" min="1">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Sell</button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock["symbol"] }}</td>
+                        <td>{{ stock["total_shares"] }}</td>
+                        <td>{{ stock["price"] | usd }}</td>
+                        <td>{{ stock["value"] | usd }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function updateMaxShares() {
+            var selectedOption = $('#symbol option:selected');
+            var maxShares = selectedOption.data('max-shares');
+            $('#shares').attr('max', maxShares);
+        }
+
+    // Call updateMaxShares on page load to set the initial max value
+        $(document).ready(function() {
+            updateMaxShares();
+            $('#symbol').change(updateMaxShares);
+        });
+    </script>
+{% endblock %}

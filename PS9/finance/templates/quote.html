@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h2>Quote</h2>
+    <form action="{{ url_for('quote') }}" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Get Quote</button>
+    </form>
+    {% if quote %}
+        <table class="table table-hover mt-4">
+            <tbody>
+                <tr>
+                    <th>Company Name</th>
+                    <td>{{ quote['name'] }}</td>
+                </tr>
+                <tr>
+                    <th>Symbol</th>
+                    <td>{{ quote['symbol'] }}</td>
+                </tr>
+                <tr>
+                    <th>Latest Price</th>
+                    <td>{{ quote['price'] | usd }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
